@@ -6,12 +6,12 @@ const makeTestApp = require("./make-test-app");
 const ATTACHED_PATH = "/dishes-router";
 
 const app = makeTestApp(ATTACHED_PATH, dishesRouter);
-
+// ALL PASSED
 describe("dishes router", () => {
   beforeEach(() => {
     dishes.splice(0, dishes.length);
   });
-
+// passing all on create
   describe("create method", () => {
     test("creates a new dish and assigns id", async () => {
       const expectedName = "creates a new dish and assigns id";
@@ -143,6 +143,8 @@ describe("dishes router", () => {
     });
   });
 
+  // READ TEST
+  // ALL PASSED
   describe("read method", () => {
     test("returns an existing dish", async () => {
       const expected = {
@@ -173,6 +175,8 @@ describe("dishes router", () => {
     });
   });
 
+  // UPDATE TEST
+  // ALL PASSED
   describe("update method", () => {
     test("returns 404 if dish does not exist", async () => {
       const data = {
@@ -219,7 +223,7 @@ describe("dishes router", () => {
       expect(response.body.data).toEqual(expected);
       expect(response.status).toBe(200);
     });
-
+    
     test("returns 400 if data.id does not match :dishId in the route", async () => {
       const original = {
         id: "14",
@@ -593,6 +597,8 @@ describe("dishes router", () => {
     });
   });
 
+  // DELETE TEST (method not allowed)
+  // ALL PASSED
   describe("delete method", () => {
     test("returns 405 for existing dish", async () => {
       const original = {
@@ -625,6 +631,8 @@ describe("dishes router", () => {
     });
   });
 
+//  list tests
+// ALL PASSED
   describe("list method", () => {
     test("returns list of dishes", async () => {
       const expected = [

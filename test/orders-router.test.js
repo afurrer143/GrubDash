@@ -29,6 +29,8 @@ describe("orders router", () => {
     orders.splice(0, orders.length);
   });
 
+  // CREATE TEST
+  // ALL PASSED
   describe("create method", () => {
     test("creates a new order and assigns id", async () => {
       const expectedDeliverTo = "creates a new order and assigns id";
@@ -307,6 +309,8 @@ describe("orders router", () => {
     });
   });
 
+  // READ TEST
+  // ALL PASSED
   describe("read method", () => {
     test("returns an existing order", async () => {
       const expected = { ...validOrder, id: "42" };
@@ -332,6 +336,8 @@ describe("orders router", () => {
     });
   });
 
+  // UPDATE TEST
+  // ALL PASSED
   describe("update method", () => {
     test("returns 404 if order does not exist", async () => {
       const data = { ...validOrder };
@@ -748,6 +754,7 @@ describe("orders router", () => {
     });
   });
 
+  // DELETE TEST
   describe("delete method", () => {
     test("returns 204 for existing order", async () => {
       orders.push({ ...validOrder, id: "22" });
@@ -766,6 +773,7 @@ describe("orders router", () => {
       expect(response.body.data).toBeUndefined();
       expect(deleted.status).toBe(404);
     });
+
     test("returns 404 for non-existent order", async () => {
       const response = await request(app)
         .delete(`${ATTACHED_PATH}/23`)
@@ -788,6 +796,8 @@ describe("orders router", () => {
     });
   });
 
+  // List tests
+  // ALL PASSED
   describe("list method", () => {
     test("returns list of orders", async () => {
       const expected = [

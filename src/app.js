@@ -16,8 +16,10 @@ app.use(express.json());
 app.use("/dishes", dishesRouter);
 app.use("/orders", ordersRouter);
 
+// Not found handler auto called
 app.use(notFound);
 
+// Error handler, should be auto called
 app.use(errorHandler);
 
 module.exports = app;
